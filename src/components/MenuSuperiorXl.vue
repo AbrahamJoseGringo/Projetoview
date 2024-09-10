@@ -11,7 +11,7 @@ const toggleMenu = () => {
 
 <template>
   <header class="header">
-
+    <!-- Seção do logo e nome -->
     <div class="header--left">
       <div class="logo-text">
         <span>Epic <span class="highlight">Reads</span></span>
@@ -19,6 +19,7 @@ const toggleMenu = () => {
       </div>
     </div>
 
+    <!-- Menu de navegação -->
     <nav class="nav">
       <ul :class="menuAberto ? 'menu' : ''">
         <li>
@@ -36,10 +37,9 @@ const toggleMenu = () => {
       <input type="text" placeholder="Pesquisar" class="search-bar" />
       <div class="language-select">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" alt="PT" class="flag" />
-        <span>PT</span>
       </div>
-      <button class="login-btn">Acessar</button>
-      <button class="register-btn">Registrar</button>
+      <a class="login-btn">Acessar</a>
+      <a class="register-btn">Registrar</a>
       <button class="books-btn">Books</button>
     </div>
 
@@ -53,9 +53,9 @@ const toggleMenu = () => {
 </template>
 
 <style scoped>
-/* Header e layout geral */
+
 .header {
-  background-color: #1a1a1a; /* Fundo preto */
+  background-color: #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,18 +64,16 @@ const toggleMenu = () => {
   color: white;
   position: relative;
   z-index: 10;
+  font-family: Montserrat;
 }
 
-/* Logo e texto */
+
 .header--left {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.header--left .logo {
-  width: 100px;
-}
 
 .logo-text {
   display: flex;
@@ -90,7 +88,7 @@ const toggleMenu = () => {
 }
 
 .logo-text .highlight {
-  color: #ff9500; /* Cor laranja para o "Reads" */
+  color: #FF8A00; 
 }
 
 .logo-text small {
@@ -102,26 +100,30 @@ const toggleMenu = () => {
 .nav ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-left: 1rem;
+  align-items: center;
 }
 
 .nav ul li a {
   text-decoration: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.329);
   font-size: 1rem;
   font-weight: bold;
+  padding: 0.5rem 1rem;
 }
 
-.nav ul li a:hover {
-  color: #ff9500; /* Laranja no hover */
+.nav ul li a:hover{
+  color: #FF8A00;
 }
 
-/* Botão Home com ícone */
+
+
 .home-btn {
   display: flex;
   align-items: center;
   background-color: #ff9500;
-  color: white;
+  color: #000000; /* Cambiar el color del texto a negro */
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -132,14 +134,21 @@ const toggleMenu = () => {
   margin-right: 0.5rem;
 }
 
+/* Asegúrate de que no haya estilos adicionales que cambien el color del texto del botón Home */
+.nav ul li a.home-btn {
+  color: #000000; /* Asegúrate de que el color del texto sea negro para el enlace Home */
+}
+
+
 /* Barra de pesquisa */
 .search-bar {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #444;
   background-color: #333;
-  color: white;
+  color: rgb(0, 0, 0);
   outline: none;
+  margin-right: 1rem;
 }
 
 /* Seletor de idioma */
@@ -147,29 +156,39 @@ const toggleMenu = () => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #444;
   padding: 0.5rem;
-  border-radius: 5px;
+}
+.language-select .flag {
+  width: 30px; /* Ajuste o valor conforme necessário */
+  height: 20px; /* Ajuste o valor conforme necessário */
+  border-radius: 0; /* Remove a borda arredondada para o formato retangular */
+}
+
+/* Ícones e botões alinhados na mesma linha */
+.header--right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espaçamento entre os elementos */
 }
 
 .language-select .flag {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  width: 30px; /* Ajuste o valor conforme necessário */
+  height: 20px; /* Ajuste o valor conforme necessário */
+  border-radius: 0; /* Remove a borda arredondada para o formato retangular */
 }
 
 /* Botões de login e registrar */
 .login-btn, .register-btn {
-  background-color: #333;
+
   border: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.397);
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  margin-left: 1rem;
+  cursor: pointer;
 }
 
 .login-btn:hover, .register-btn:hover {
-  background-color: #ff9500;
+  color: #FF8A00;
 }
 
 /* Botão Books */
@@ -180,7 +199,6 @@ const toggleMenu = () => {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 1rem;
 }
 
 .books-btn:hover {
@@ -202,34 +220,5 @@ const toggleMenu = () => {
   display: block;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .nav ul {
-    display: none;
-  }
 
-  .menu-hamburger {
-    display: flex;
-  }
-
-  .nav ul.menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background-color: #333;
-    right: 0;
-    top: 100%;
-    padding: 1rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.23);
-    border-radius: 10px;
-  }
-
-  .nav ul.menu li {
-    margin-bottom: 0.5rem;
-  }
-
-  .nav ul.menu li a {
-    color: white;
-  }
-}
 </style>
