@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import HomeIcon from 'vue-material-design-icons/Home.vue';
-
+import Book from 'vue-material-design-icons/Book.vue'
 const menuAberto = ref(false);
 
 const toggleMenu = () => {
@@ -40,7 +40,7 @@ const toggleMenu = () => {
       </div>
       <a class="login-btn">Acessar</a>
       <a class="register-btn">Registrar</a>
-      <button class="books-btn">Books</button>
+      <button class="books-btn"><Book></Book></button>
     </div>
 
     <!-- Ícone do menu hambúrguer -->
@@ -191,9 +191,8 @@ const toggleMenu = () => {
   color: #FF8A00;
 }
 
-/* Botão Books */
 .books-btn {
-  background-color: #ff9500;
+  background-color: #FF8A00;
   border: none;
   color: white;
   padding: 0.5rem 1rem;
