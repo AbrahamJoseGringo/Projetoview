@@ -66,13 +66,12 @@ const toggleMenu = () => {
   z-index: 10;
   font-family: Montserrat;
 }
+.header--logo {
+    display: flex;
+    align-items: center;
+  }
 
 
-.header--left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
 
 .logo-text {
@@ -123,8 +122,7 @@ const toggleMenu = () => {
   display: flex;
   align-items: center;
   background-color: #ff9500;
-  color: #000000; /* Cambiar el color del texto a negro */
-  padding: 0.5rem 1rem;
+  color: #000000;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
@@ -218,6 +216,4 @@ const toggleMenu = () => {
   height: 3px;
   display: block;
 }
-
-
 </style>
